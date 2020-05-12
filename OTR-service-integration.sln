@@ -1,0 +1,37 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30011.22
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-API", "OTR-integration-API\OTR-integration-API\OTR-integration-API.csproj", "{FAA713C0-03AF-44B5-B5FB-56C5782436D1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-Test", "OTR-integration-Test\OTR-integration-Test.csproj", "{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-Data", "OTR-integration-Data\OTR-integration-Data.csproj", "{D60E434F-9196-4680-9EEF-39645154914F}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{FAA713C0-03AF-44B5-B5FB-56C5782436D1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FAA713C0-03AF-44B5-B5FB-56C5782436D1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FAA713C0-03AF-44B5-B5FB-56C5782436D1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FAA713C0-03AF-44B5-B5FB-56C5782436D1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D60E434F-9196-4680-9EEF-39645154914F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D60E434F-9196-4680-9EEF-39645154914F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D60E434F-9196-4680-9EEF-39645154914F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D60E434F-9196-4680-9EEF-39645154914F}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EB01870B-FD08-4D13-8EE3-CDC485371736}
+	EndGlobalSection
+EndGlobal
