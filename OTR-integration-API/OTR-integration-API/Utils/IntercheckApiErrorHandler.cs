@@ -19,7 +19,7 @@ namespace OTR_integration_API.Utils
             {
                 if ("401".Equals(interchecksApiError.ErrorCode.ToUpper()))
                 {
-                    throw new UnauthorizedAccessException($"Interchecks Api Authorization Error, Error Code:{interchecksApiError.ErrorCode}:{interchecksApiError.ErrorMessage}");
+                    throw new UnauthorizedAccessException($"Interchecks Api Authorization Error, Error Code:{interchecksApiError.ErrorCode}|{interchecksApiError.ErrorMessage}");
                 }
                 else if ("R05".Equals(interchecksApiError.ErrorCode.ToUpper()))
                 {
@@ -27,7 +27,7 @@ namespace OTR_integration_API.Utils
                 }
                 else
                 {
-                    throw new HttpRequestException($"Interchecks Api Error, Error Code:{interchecksApiError.ErrorCode}:{interchecksApiError.ErrorMessage}");
+                    throw new HttpRequestException($"Interchecks Api Error, Error Code:{interchecksApiError.ErrorCode}|{interchecksApiError.ErrorMessage}");
                 }
             }
         }
