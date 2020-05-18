@@ -59,7 +59,37 @@ namespace OTR_integration_API.Repositories
                     var jsonError = (JObject)JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
                     var apiError = JsonToResponseDto.JsonToInterchecksApiError(jsonError);
                     _logger.LogError($"Interchecks Api Error, Error Code:{apiError.ErrorCode}:{apiError.ErrorMessage}");
-                    throw new HttpRequestException($"Interchecks Api Error, Error Code:{apiError.ErrorCode}:{apiError.ErrorMessage}");
+                    return (RecipientDTO)IntercheckApiErrorHandler.Handle(apiError);
+                }
+            }
+        }
+
+        public async Task<RecipientDTO> SearchRecipient(RecipientSearchRequest recipientSearchRequest)
+        {
+            if (recipientSearchRequest == null)
+            {
+                throw new ArgumentNullException(nameof(recipientSearchRequest));
+            }
+            else
+            {
+                var urlRequest = $"{_interchecksApiSettings.Value.ApiRecipientsSearchCall.Replace("{{PayerId}}", _interchecksApiSettings.Value.PayerId)}";
+                var jsonData = JsonConvert.SerializeObject(new
+                {
+                    recipient_email = recipientSearchRequest.Email
+                });
+                HttpContent httpContent = new StringContent(jsonData.ToString(), Encoding.UTF8, "application/json");
+                var response = await _httpClient.PostAsync(urlRequest, httpContent);
+                if (response.IsSuccessStatusCode)
+                {
+                    var jsonRecipientDTO = (JObject)JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
+                    return JsonToResponseDto.JsonToRecipientDTO(jsonRecipientDTO);
+                }
+                else
+                {
+                    var jsonError = (JObject)JsonConvert.DeserializeObject(response.Content.ReadAsStringAsync().Result);
+                    var apiError = JsonToResponseDto.JsonToInterchecksApiError(jsonError);
+                    _logger.LogError($"Interchecks Api Error, Error Code:{apiError.ErrorCode}:{apiError.ErrorMessage}");
+                    return (RecipientDTO)IntercheckApiErrorHandler.Handle(apiError);
                 }
             }
         }

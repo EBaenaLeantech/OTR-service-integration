@@ -39,5 +39,20 @@ namespace OTR_integration_API.Controllers
             return Ok(recipientDTO);
         }
 
+        [HttpPost("searchRecipient")]
+        public async Task<IActionResult> SearchRecipient(RecipientSearchRequest recipientSearchRequest)
+        {
+            var recipientDTO = await _recipientsRepo.SearchRecipient(recipientSearchRequest);
+            if (recipientDTO == null)
+            {
+                return NotFound();
+            }
+            else
+            {
+                return Ok(recipientDTO);
+            }
+            
+        }
+
     }
 }

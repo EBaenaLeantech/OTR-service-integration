@@ -41,7 +41,7 @@ namespace OTR_integration_API.Utils
                 {
                     Error = jsonApiError["error"].Value<bool>(),
                     ErrorCode = jsonApiError["error_code"].Value<string>(),
-                    ErrorMessage = jsonApiError["error_message"].Value<string>()
+                    ErrorMessage = !jsonApiError.ContainsKey("error_message") ? string.Empty : jsonApiError["error_message"].Value<string>()
                 };
             }
         }

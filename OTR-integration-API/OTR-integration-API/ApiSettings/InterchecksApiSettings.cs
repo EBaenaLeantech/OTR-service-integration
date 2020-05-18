@@ -14,5 +14,6 @@ namespace OTR_integration_API.ApiSettings
         public string SecretKey { get; set; }
         //Calls
         public string ApiRecipientsCreateCall { get; set; }
+        public string ApiRecipientsSearchCall { get; set; }
     }
 }

@@ -10,5 +10,6 @@ namespace OTR_integration_API.Repositories
     public interface IRecipientsRepo
     {
         public Task<RecipientDTO> CreateRecipient(RecipientCreateRequest recipientCreateRequest);
+        public Task<RecipientDTO> SearchRecipient(RecipientSearchRequest recipientSearchRequest);
     }
 }
