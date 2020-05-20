@@ -1,18 +1,28 @@
-﻿using System.Runtime.Serialization;
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Runtime.Serialization;
+using System.Threading.Tasks;
 
 namespace OTR_integration_API.Contracts.Responses
 {
     /// <summary>
-    /// Represent the object response for 'Create','Search' method.
+    /// Represent the object response for 'Create','Search' W9 Data method.
     /// </summary>
     [DataContract]
-    public class RecipientDTO
+    public class RecipientW9DTO
     {
         /// <summary>
         /// Represent recipient_id data response, id of user's recipient
         /// </summary>
         [DataMember(Name = "recipient_id", EmitDefaultValue = false)]
         public string RecipientID { get; set; }
+
+        /// <summary>
+        /// Represent  "recipient_reference_id" data response, id of user's recipient
+        /// </summary>
+        [DataMember(Name = "recipient_reference_id", EmitDefaultValue = false)]
+        public string RecipientReferenceID { get; set; }
 
         /// <summary>
         /// Represent recipient_email data response, e-mail of user's recipient

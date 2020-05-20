@@ -15,5 +15,9 @@ namespace OTR_integration_API.ApiSettings
         //Calls
         public string ApiRecipientsCreateCall { get; set; }
         public string ApiRecipientsSearchCall { get; set; }
+        public string ApiRecipientsGetCall { get; set; }
+        public string ApiRecipientsUpdateCall { get; set; }
+        public string ApiRecipientsCreateW9DataCall { get; set; }
+        public string ApiRecipientsUpdateW9DataCall { get; set; }
     }
 }

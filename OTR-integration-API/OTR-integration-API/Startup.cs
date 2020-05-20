@@ -17,7 +17,7 @@ using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Serialization;
 using OTR_integration_API.ApiSettings;
-using OTR_integration_API.Repositories;
+using OTR_integration_API.Services;
 
 namespace OTR_integration_API
 {
@@ -43,9 +43,9 @@ namespace OTR_integration_API
 
             //Repositories section
             //Same for every request, only for performance issues
-            //services.AddSingleton<IRecipientsRepo, HttpApiRecipientsRepo>();
+            //services.AddSingleton<IRecipientsService, RecipientsService>();
             //Created once per client request
-            services.AddScoped<IRecipientsRepo, HttpApiRecipientsRepo>();
+            services.AddScoped<IRecipientsService, RecipientsService>();
 
             //HttpClient Section Configuration
             services.AddHttpClient("InterchecksApi", c =>

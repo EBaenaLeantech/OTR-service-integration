@@ -1,7 +1,9 @@
-﻿using OTR_integration_API.Contracts.Errors;
+﻿using Microsoft.AspNetCore.Http;
+using OTR_integration_API.Contracts.Errors;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
@@ -20,6 +22,7 @@ namespace OTR_integration_API.Utils
                 if ("401".Equals(interchecksApiError.ErrorCode.ToUpper()))
                 {
                     throw new UnauthorizedAccessException($"Interchecks Api Authorization Error, Error Code:{interchecksApiError.ErrorCode}|{interchecksApiError.ErrorMessage}");
+    
                 }
                 else if ("R05".Equals(interchecksApiError.ErrorCode.ToUpper()))
                 {

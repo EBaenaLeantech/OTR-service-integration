@@ -1,13 +1,17 @@
-﻿using System.ComponentModel.DataAnnotations;
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
+using System.Linq;
 using System.Runtime.Serialization;
+using System.Threading.Tasks;
 
 namespace OTR_integration_API.Contracts.Requests
 {
     /// <summary>
-    /// Represent the object Request for 'CreateRecipient' method.
+    /// Represent the object Request for 'UpdateRecipient' method.
     /// </summary>
     [DataContract]
-    public class RecipientCreateRequest
+    public class RecipientUpdateRequest
     {
         /// <summary>
         /// Represent recipient_email data parameter, e-mail of user's recipient
@@ -31,6 +35,5 @@ namespace OTR_integration_API.Contracts.Requests
         [Required]
         [DataMember(Name = "recipient_last_name", EmitDefaultValue = false)]
         public string LastName { get; set; }
-
     }
 }
