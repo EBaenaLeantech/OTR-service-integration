@@ -41,5 +41,17 @@ namespace OTR_integration_API.Contracts.Responses
         /// </summary>
         [DataMember(Name = "recipient_last_name", EmitDefaultValue = false)]
         public string LastName { get; set; }
+
+        /// <summary>
+        /// Represent "recipient_w9_verified" data response, it's optional data
+        /// </summary>
+        [DataMember(Name = "recipient_w9_verified", EmitDefaultValue = false, IsRequired = false)]
+        public bool? Verified { get; set; }
+
+        /// <summary>
+        /// Represent "recipient_w9_required" data response, it's optional data
+        /// </summary>
+        [DataMember(Name = "recipient_w9_required", EmitDefaultValue = false, IsRequired = false)]
+        public bool? Required { get; set; }
     }
 }
