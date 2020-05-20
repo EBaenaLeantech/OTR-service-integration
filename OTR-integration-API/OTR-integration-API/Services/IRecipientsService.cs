@@ -10,6 +10,7 @@ namespace OTR_integration_API.Services
     public interface IRecipientsService
     {
         public Task<RecipientDTO> CreateRecipient(RecipientCreateRequest recipientCreateRequest);
+        public Task<RecipientDTO> CreateIntegralRecipient(RecipientCreateRequest recipientCreateRequest);
         public Task<RecipientW9DTO> CreateRecipientW9Data(RecipientCreateW9Request recipientCreateW9Request);
         public Task<RecipientDTO> SearchRecipient(RecipientSearchRequest recipientSearchRequest);
         public Task<RecipientDTO> GetRecipientById(string recipientId);

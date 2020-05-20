@@ -27,5 +27,8 @@ namespace OTR_integration_API.Contracts.Errors
         /// </summary>
         [DataMember(Name = "error_message", EmitDefaultValue = false)]
         public string ErrorMessage { get; set; }
+
+        [DataMember(Name = "errors", EmitDefaultValue = false, IsRequired = false)]
+        public string[] Errors { get; set; }
     }
 }

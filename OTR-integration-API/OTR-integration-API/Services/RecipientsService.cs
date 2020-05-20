@@ -1,4 +1,5 @@
-﻿using Microsoft.Extensions.Logging;
+﻿using AutoMapper;
+using Microsoft.Extensions.Logging;
 using Microsoft.Extensions.Options;
 using Newtonsoft.Json;
 using OTR_integration_API.ApiSettings;
@@ -20,16 +21,19 @@ namespace OTR_integration_API.Services
         private readonly ILogger<RecipientsService> _logger;
         private readonly IOptions<InterchecksApiSettings> _interchecksApiSettings;
         private readonly HttpClient _httpClient;
+        private readonly IMapper _mapper;
 
         public RecipientsService(
             ILogger<RecipientsService> logger,
             IOptions<InterchecksApiSettings> interchecksApiSettings,
-            IHttpClientFactory httpClientFactory
+            IHttpClientFactory httpClientFactory,
+            IMapper mapper
         )
         {
             _logger = logger;
             _interchecksApiSettings = interchecksApiSettings;
             _httpClient = httpClientFactory.CreateClient("InterchecksApi");
+            _mapper = mapper;
         }
 
         public async Task<RecipientDTO> GetRecipientById(string recipientId)
@@ -76,6 +80,28 @@ namespace OTR_integration_API.Services
                     InterchecksApiError apiError = JsonConvert.DeserializeObject<InterchecksApiError>(respError);
                     _logger.LogError($"Interchecks Api Error, Error Code:{apiError.ErrorCode}:{apiError.ErrorMessage}");
                     return (RecipientDTO)IntercheckApiErrorHandler.Handle(apiError);
+                }
+            }
+        }
+
+        public async Task<RecipientDTO> CreateIntegralRecipient(RecipientCreateRequest recipientCreateRequest)
+        {
+            if (recipientCreateRequest == null)
+            {
+                throw new ArgumentNullException(nameof(recipientCreateRequest));
+            }
+            else
+            {
+                RecipientSearchRequest recipientSearchRequest = _mapper.Map<RecipientSearchRequest>(recipientCreateRequest);
+                RecipientDTO recipientSearched = await this.SearchRecipient(recipientSearchRequest);
+                if (recipientSearched == null)
+                {
+                    RecipientDTO recipientCreated = await this.CreateRecipient(recipientCreateRequest);
+                    return recipientCreated;
+                }
+                else
+                {
+                    return recipientSearched;
                 }
             }
         }

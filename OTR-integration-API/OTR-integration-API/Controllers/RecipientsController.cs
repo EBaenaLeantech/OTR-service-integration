@@ -24,7 +24,7 @@ namespace OTR_integration_API.Controllers
         }
 
         [HttpGet]
-        public async Task<IActionResult> Get()
+        public IActionResult Get()
         {
             return Ok("Interchecks Recipients it's ONLINE");
         }
@@ -69,6 +69,24 @@ namespace OTR_integration_API.Controllers
         }
 
         /// <summary>
+        /// First search a recipient by email, if Recimpient doesn't exist
+        /// this method create a recipient with first name, last name, and email
+        /// if Recimpient does exist will be returned
+        /// </summary>
+        /// <param name="recipientCreateRequest">
+        /// request object that contains the parameters for using the api method of Interchecks Api Search and Create Recipients
+        /// </param>
+        /// <returns>
+        /// response object Recipient Searched or Created
+        /// </returns>
+        [HttpPost("createIntegralRecipient")]
+        public async Task<IActionResult> CreateIntegralRecipient(RecipientCreateRequest recipientCreateRequest)
+        {
+            var recipientDTO = await _recipientsService.CreateIntegralRecipient(recipientCreateRequest);
+            return Ok(recipientDTO);
+        }
+
+        /// <summary>
         /// Create recipient with first name, last name, email, TIN, and address.
         /// </summary>
         /// <param name="recipientCreateW9Request">
@@ -86,7 +104,7 @@ namespace OTR_integration_API.Controllers
 
 
         /// <summary>
-        /// Search for a recipient using an email address. A recipient not found will return a Not Found exception if Recimpient doesn't exist
+        /// Search for a recipient using an email address. will return a Not Found exception if Recimpient doesn't exist
         /// </summary>
         /// <param name="recipientSearchRequest">
         /// request object that contains the parameters for using the api method of Interchecks Api Searc Recipients
@@ -149,7 +167,7 @@ namespace OTR_integration_API.Controllers
         /// <param name="recipient_id">
         /// Recipient id
         /// </param>
-        /// <param name="rrecipientUpdateW9Request">
+        /// <param name="recipientUpdateW9Request">
         /// request object that contains the parameters for using the api method of Interchecks Api Update Recipients
         /// </param>
         /// <returns>
