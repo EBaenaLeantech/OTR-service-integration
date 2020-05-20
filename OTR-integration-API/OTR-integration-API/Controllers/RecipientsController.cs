@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace OTR_integration_API.Controllers
 {
+    /// <summary>
+    /// Rest Controller for Recipients API methods Creation, Update, Search by email and Get by recipient id
+    /// </summary>
     [Route("api/[controller]")]
     [ApiController]
     public class RecipientsController : ControllerBase
@@ -69,7 +72,7 @@ namespace OTR_integration_API.Controllers
         }
 
         /// <summary>
-        /// First search a recipient by email, if Recimpient doesn't exist
+        /// First search a recipient by email, if Recimpient doesn't exist then
         /// this method create a recipient with first name, last name, and email
         /// if Recimpient does exist will be returned
         /// </summary>

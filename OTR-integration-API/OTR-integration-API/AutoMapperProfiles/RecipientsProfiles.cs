@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace OTR_integration_API.AutoMapperProfiles
 {
+    /// <summary>
+    /// Automapper implementation to mapping functions between Recipients objects.
+    /// </summary>
     public class RecipientsProfiles : Profile
     {
         public RecipientsProfiles()
@@ -14,8 +17,8 @@ namespace OTR_integration_API.AutoMapperProfiles
             // Source -> Target
             CreateMap<RecipientCreateRequest, RecipientSearchRequest>()
                 .ForMember(
-                    dest => dest.Email,
-                    opt => opt.MapFrom(src => src.Email)
+                    target => target.Email,
+                    opt => opt.MapFrom(source => source.Email)
                 );
         }
     }

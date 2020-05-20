@@ -27,7 +27,9 @@ namespace OTR_integration_API.Contracts.Errors
         /// </summary>
         [DataMember(Name = "error_message", EmitDefaultValue = false)]
         public string ErrorMessage { get; set; }
-
+        /// <summary>
+        /// Represent errors data response, error collection belong to Interchecks Api 
+        /// </summary>
         [DataMember(Name = "errors", EmitDefaultValue = false, IsRequired = false)]
         public string[] Errors { get; set; }
     }

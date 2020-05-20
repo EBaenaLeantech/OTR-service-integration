@@ -16,6 +16,9 @@ using System.Threading.Tasks;
 
 namespace OTR_integration_API.Services
 {
+    /// <summary>
+    /// RecipientsService for Recipients logic implementation http API client methods Creation, Update, Search by email and Get by recipient id
+    /// </summary>
     public class RecipientsService : IRecipientsService
     {
         private readonly ILogger<RecipientsService> _logger;
@@ -36,6 +39,15 @@ namespace OTR_integration_API.Services
             _mapper = mapper;
         }
 
+        /// <summary>
+        /// Get recipient using the recipient ID.
+        /// </summary>
+        /// <param name="recipient_id">
+        /// Recipient id
+        /// </param>
+        /// <returns>
+        /// response object Recipient 
+        /// </returns>
         public async Task<RecipientDTO> GetRecipientById(string recipientId)
         {
             if (String.IsNullOrEmpty(recipientId)) return null;
@@ -58,6 +70,15 @@ namespace OTR_integration_API.Services
             }
         }
 
+        /// <summary>
+        /// Create recipient with first name, last name, and email.
+        /// </summary>
+        /// <param name="recipientCreateRequest">
+        /// request object that contains the parameters for using the api method of Interchecks Api Create Recipients
+        /// </param>
+        /// <returns>
+        /// response object Recipient Created
+        /// </returns>
         public async Task<RecipientDTO> CreateRecipient(RecipientCreateRequest recipientCreateRequest)
         {
             if (recipientCreateRequest == null)
@@ -84,6 +105,17 @@ namespace OTR_integration_API.Services
             }
         }
 
+        /// <summary>
+        /// First search a recipient by email, if Recimpient doesn't exist then
+        /// this method create a recipient with first name, last name, and email
+        /// if Recimpient does exist will be returned
+        /// </summary>
+        /// <param name="recipientCreateRequest">
+        /// request object that contains the parameters for using the api method of Interchecks Api Search and Create Recipients
+        /// </param>
+        /// <returns>
+        /// response object Recipient Searched or Created
+        /// </returns>
         public async Task<RecipientDTO> CreateIntegralRecipient(RecipientCreateRequest recipientCreateRequest)
         {
             if (recipientCreateRequest == null)
@@ -106,6 +138,15 @@ namespace OTR_integration_API.Services
             }
         }
 
+        /// <summary>
+        /// Create recipient with first name, last name, email, TIN, and address.
+        /// </summary>
+        /// <param name="recipientCreateW9Request">
+        /// request object that contains the parameters for using the api method of Interchecks Api Create w9 Data Recipients
+        /// </param>
+        /// <returns>
+        /// response object Recipient w9 Data Created
+        /// </returns>
         public async Task<RecipientW9DTO> CreateRecipientW9Data(RecipientCreateW9Request recipientCreateW9Request)
         {
             if (recipientCreateW9Request == null)
@@ -134,6 +175,15 @@ namespace OTR_integration_API.Services
             }
         }
 
+        /// <summary>
+        /// Search for a recipient using an email address. will return a Not Found exception if Recimpient doesn't exist
+        /// </summary>
+        /// <param name="recipientSearchRequest">
+        /// request object that contains the parameters for using the api method of Interchecks Api Searc Recipients
+        /// </param>
+        /// <returns>
+        /// /// response object Recipient Searched or a Not Found exception if Recimpient doesn't exist
+        /// </returns>
         public async Task<RecipientDTO> SearchRecipient(RecipientSearchRequest recipientSearchRequest)
         {
             if (recipientSearchRequest == null)
@@ -160,6 +210,18 @@ namespace OTR_integration_API.Services
             }
         }
 
+        /// <summary>
+        /// Update recipient first name, last name, and email using the recipient ID.
+        /// </summary>
+        /// <param name="recipient_id">
+        /// Recipient id
+        /// </param>
+        /// <param name="recipientUpdateRequest">
+        /// request object that contains the parameters for using the api method of Interchecks Api Update Recipients
+        /// </param>
+        /// <returns>
+        /// response object Recipient Updated
+        /// </returns>
         public async Task<RecipientDTO> UpdateRecipient(string recipientId, RecipientUpdateRequest recipientUpdateRequest)
         {
             if (recipientUpdateRequest == null)
@@ -186,6 +248,18 @@ namespace OTR_integration_API.Services
             }
         }
 
+        /// <summary>
+        /// Update recipient with TIN and address. using the recipient ID.
+        /// </summary>
+        /// <param name="recipient_id">
+        /// Recipient id
+        /// </param>
+        /// <param name="recipientUpdateW9Request">
+        /// request object that contains the parameters for using the api method of Interchecks Api Update Recipients
+        /// </param>
+        /// <returns>
+        /// response object Recipient Updated
+        /// </returns>
         public async Task<RecipientW9DTO> UpdateRecipientW9Data(string recipientId, RecipientUpdateW9Request recipientUpdateW9Request)
         {
             if (recipientUpdateW9Request == null)
