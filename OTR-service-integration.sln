@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30011.22
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-API", "OTR-integration-API\OTR-integration-API\OTR-integration-API.csproj", "{FAA713C0-03AF-44B5-B5FB-56C5782436D1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTR-integration-API", "OTR-integration-API\OTR-integration-API\OTR-integration-API.csproj", "{FAA713C0-03AF-44B5-B5FB-56C5782436D1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-Test", "OTR-integration-Test\OTR-integration-Test.csproj", "{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTR-integration-Test", "OTR-integration-Test\OTR-integration-Test.csproj", "{BEF0B7F8-AA2B-477D-B8C5-16D34235CA98}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-Data", "OTR-integration-Data\OTR-integration-Data.csproj", "{D60E434F-9196-4680-9EEF-39645154914F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "OTR-integration-Data", "OTR-integration-Data\OTR-integration-Data.csproj", "{D60E434F-9196-4680-9EEF-39645154914F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OTR-integration-WebAPI", "OTR-integration-WebAPI\OTR-integration-WebAPI.csproj", "{F80BE7D9-6083-434E-BF04-287825CDD716}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -27,6 +29,10 @@ Global
 		{D60E434F-9196-4680-9EEF-39645154914F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D60E434F-9196-4680-9EEF-39645154914F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D60E434F-9196-4680-9EEF-39645154914F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F80BE7D9-6083-434E-BF04-287825CDD716}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F80BE7D9-6083-434E-BF04-287825CDD716}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F80BE7D9-6083-434E-BF04-287825CDD716}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F80BE7D9-6083-434E-BF04-287825CDD716}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

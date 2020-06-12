@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
-using OTR_integration_API.Contracts.Requests;
+using OTR_integration_Data.Contracts.Requests;
 using OTR_integration_API.Services;
 using System.Threading.Tasks;
 
@@ -27,6 +27,7 @@ namespace OTR_integration_API.Controllers
         }
 
         [HttpGet]
+        
         public IActionResult Get()
         {
             return Ok("Interchecks Recipients it's ONLINE");

@@ -47,8 +47,10 @@ namespace OTR_integration_API
             //Repositories section
             //Same for every request, only for performance issues
             //services.AddSingleton<IRecipientsService, RecipientsService>();
+            //services.AddSingleton<IAccountsService, AccountsService>();
             //Created once per client request
             services.AddScoped<IRecipientsService, RecipientsService>();
+            services.AddScoped<IAccountsService, AccountsService>();
 
             //HttpClient Section Configuration
             services.AddHttpClient("InterchecksApi", c =>

@@ -1,5 +1,5 @@
-﻿using OTR_integration_API.Contracts.Requests;
-using OTR_integration_API.Contracts.Responses;
+﻿using OTR_integration_Data.Contracts.Requests;
+using OTR_integration_Data.Contracts.Responses;
 using System;
 using System.Collections.Generic;
 using System.Linq;

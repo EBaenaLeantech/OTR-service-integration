@@ -1,5 +1,5 @@
 ﻿using AutoMapper;
-using OTR_integration_API.Contracts.Requests;
+using OTR_integration_Data.Contracts.Requests;
 using System;
 using System.Collections.Generic;
 using System.Linq;

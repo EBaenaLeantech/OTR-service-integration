@@ -8,7 +8,7 @@ namespace OTR_integration_API.ApiSettings
     /// <summary>
     /// Represent the Intercheck settings object, these contains api setup information and api methods calls.
     /// </summary>
-    public class InterchecksApiSettings
+    public class InterchecksApiSettings : IInterchecksApiSettings
     {
         //Setup
         public string BaseUrl { get; set; }
@@ -22,5 +22,12 @@ namespace OTR_integration_API.ApiSettings
         public string ApiRecipientsUpdateCall { get; set; }
         public string ApiRecipientsCreateW9DataCall { get; set; }
         public string ApiRecipientsUpdateW9DataCall { get; set; }
+        //Accounts Calls
+        public string ApiAccountsCreateCall { get; set; }
+
+        public InterchecksApiSettings()
+        {
+
+        }
     }
 }
